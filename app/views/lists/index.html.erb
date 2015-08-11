@@ -1,0 +1,21 @@
+<h3> All of Your Lists </h3>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <td><%= list.title %> </td>
+        <td><%= list.description %> </td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+
+</table>
