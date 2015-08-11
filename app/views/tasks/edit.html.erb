@@ -1,0 +1,39 @@
+<div class="col-xs-6">
+  <div class="form">
+    <h2>Update Task </h2> 
+
+      <%= form_for(@task, url: list_task_path(@task.list_id, @task), method: :patch, role:"form") do |f| %>
+
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control"%><br>
+
+        <%= f.label :notes %>
+        <%= f.text_field :notes, class: "form-control"%><br>
+
+        <%= f.label :due_date %>
+        <%= f.date_field :due_date, class: "form-control"%><br>
+      
+        <%= f.label :start_date %>
+        <%= f.date_field :start_date, class: "form-control"%><br>
+
+        <div>
+          <%= f.label :incomplete do %>
+            <%= f.radio_button(:status, "Incomplete") %>Incomplete
+          <% end %>
+        </div>
+
+        <div>
+          <%= f.label :completed do  %>
+            <%= f.radio_button(:status, "Completed")%> Completed
+          <% end -%>
+        </div>
+
+        <div>
+          <%= f.submit "Update Task", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>  
+</div>
+
+
+
