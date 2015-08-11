@@ -1,0 +1,33 @@
+<h2> Current Tasks </h2>
+
+<%#= link_to 'Current List', list_tasks_path(list)  %>
+<%= link_to 'All Lists', lists_path %>
+<%= link_to 'New Task', new_list_task_path %>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Notes</th>
+      <th>Due Date</th>
+      <th>Start Date</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %> </td>
+        <td><%= task.notes %> </td>
+        <td><%= task.due_date %> </td>
+        <td><%= task.start_date %> </td>
+        <td><%= task.status %> </td>
+        <td><%#= link_to 'Edit', edit_list_path(list) %> </td>
+        <td><%#= link_to 'Delete', list_path(list), method: :delete %> </td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+
+</table>
