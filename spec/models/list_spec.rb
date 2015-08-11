@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe List, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it 'is valid with a title' do
+    list = List.create(title: "New list")
+
+    expect(list).to be_valid
+  end
+
+  it 'is not valid without a title' do
+    list = List.create(title: nil)
+
+    expect(list).not_to be_valid
+  end
 end
