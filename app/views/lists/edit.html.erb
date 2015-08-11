@@ -1,0 +1,15 @@
+<div class="form">
+<h2> Edit List <%= @list.title %> </h2>
+  <%= form_for(@list, url: list_path, method: :patch, role: "form") do |f| %>
+  
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control" %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %><br>
+
+  <div>
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
