@@ -2,6 +2,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.order(created_at: :desc)
+    @tasks = Task.all
   end
 
   def new
@@ -34,6 +35,15 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.destroy
     redirect_to lists_path
+  end
+
+  def export
+    @lists = List.all
+    @tasks = Task.order(:created_at)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.csv { send_data @tasks.to_csv }
+    end
   end
 
 
