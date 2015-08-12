@@ -3,9 +3,8 @@ class List < ActiveRecord::Base
   has_many :tasks
 
   def self.import(file)
-
     CSV.parse(file.tempfile, { headers: true }).each do |row|
-      task_attributes = row.to_h
+      task_attributes = row.to_hash
       task_attributes.delete(:image)
       Task.create! task_attributes
     end
