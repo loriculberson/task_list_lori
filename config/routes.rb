@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get "/export" => "lists#export"
       collection { post :import }
     resources :tasks do 
-      delete  "/delete_image"  =>  "tasks#delete_image"
+      get  "/delete_image"  =>  "tasks#delete_image"
     end
   end
 end

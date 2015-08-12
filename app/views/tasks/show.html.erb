@@ -1,7 +1,7 @@
 <div>
   <% if @task.image.present? %>
     <%= image_tag @task.image.url(:medium) %>
-    <%= link_to 'Delete image', list_task_delete_image_path(@task.list, @task), method: :delete %>
+    <%= link_to 'Delete image', list_task_delete_image_path(@task.list, @task), method: :get %>
   <% end %>
   <%= @task.title %> 
   <%= @task.notes %> 
