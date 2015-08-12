@@ -241,7 +241,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  aws-sdk (< 2.0)
+  aws-sdk (~> 1.0)
   bootstrap-sass (~> 3.3.4)
   byebug
   capybara
