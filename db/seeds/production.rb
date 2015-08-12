@@ -27,10 +27,19 @@ class Seed
     date_range = rand(1..30)
     num = (1..list_count).to_a
 
-    75.times do
+    40.times do
       Task.create(title: Faker::Commerce.product_name, 
         notes: Faker::Company.catch_phrase, 
         start_date: Faker::Time.between(DateTime.now, DateTime.now + 5),
+        due_date: Faker::Date.between(6.days.from_now, 50.days.from_now), 
+        status: status_val.sample,
+        list_id: num.sample )
+    end
+
+    40.times do
+      Task.create!(title: Faker::Commerce.product_name, 
+        notes: Faker::Company.catch_phrase, 
+        start_date: Time.now,
         due_date: Faker::Date.between(6.days.from_now, 50.days.from_now), 
         status: status_val.sample,
         list_id: num.sample )
