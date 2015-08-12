@@ -11,7 +11,7 @@ RSpec.describe "CRUD tasks", type: :feature do
     fill_in "task[title]", with: "Acura MDX"
     fill_in "task[notes]", with: "used with less than 30,000 miles"
     fill_in "task[due_date]", with: "2015-08-15"
-    fill_in "task[start_date]", with: "2015-08-14"
+    fill_in "task[start_date]", with: Date.today.to_s
     choose "Incomplete"
     click_on 'Create Task'
   end
@@ -27,7 +27,7 @@ RSpec.describe "CRUD tasks", type: :feature do
   it "can update a task" do 
     create_a_list
     create_a_task
-
+save_and_open_page
     click_on 'Edit'
     fill_in "task[title]", with: "Chevy Tahoe"
     click_on "Update Task"
