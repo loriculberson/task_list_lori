@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'change status of tasks' do 
+  attr_reader :task
 
   def create_a_list_and_tasks
     list = List.create!(title: "Car shopping")
@@ -10,19 +11,15 @@ RSpec.describe 'change status of tasks' do
   end
 
 
-  it "changes status from incomplete to completed", js: true do 
+  xit "changes status from incomplete to completed", js: true do 
     create_a_list_and_tasks
     click_on "Car shopping"
-
-    within 'table' do
-      expect(page).to have_content(@task.title)
-      find("input[type='checkbox']").set(true)
     
-      expect(page).not_to have_content(@task.title)
-    end
-
-    click_on "Completed"
     expect(page).to have_content(@task.title)
+    find("input[type='checkbox']").set(true)
+
+
+    expect(page).not_to have_content(task.title)
 
   end
 end

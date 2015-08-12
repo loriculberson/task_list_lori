@@ -2,7 +2,7 @@
   <div class="form">
     <h2>Update Task </h2> 
 
-      <%= form_for(@task, url: list_task_path(@task.list_id, @task), method: :patch, role:"form") do |f| %>
+      <%= form_for(@task, multipart: true, url: list_task_path(@task.list_id, @task), method: :patch, role:"form") do |f| %>
 
         <%= f.label :title %>
         <%= f.text_field :title, class: "form-control"%><br>
