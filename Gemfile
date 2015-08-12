@@ -12,6 +12,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -23,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
 gem 'activesupport'
+gem 'timecop'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -52,6 +55,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'factory_girl_rails', '~> 4.0'
 end
 

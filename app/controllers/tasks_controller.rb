@@ -1,8 +1,22 @@
 class TasksController < ApplicationController
 
   def index
-    list = List.find(params[:list_id])
-    @tasks = list.tasks
+    @list = List.find(params[:list_id])
+    if params[:status] == "Completed"
+      @tasks = @list.tasks.where(status: "Completed").order(:id)
+    elsif params[:start_date] == "future"
+      @tasks = @list.tasks.future_task
+    elsif params[:status] == "Incomplete"
+      @tasks = @list.tasks.where(status: "Incomplete")
+    else
+      @tasks = @list.tasks.where(status: "Incomplete")
+                          .where("start_date <=?", Date.today)
+                          .order(:id)
+    end
+  end
+
+  def show
+     @task = Task.find(params[:id])
   end
 
   def new
@@ -14,8 +28,13 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+
     if @task.update(task_params)
-      redirect_to list_tasks_path
+      if request.xhr?
+        head :no_content
+      else
+        redirect_to list_tasks_path
+      end
     else
       render :edit
     end
