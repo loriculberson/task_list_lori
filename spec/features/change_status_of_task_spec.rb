@@ -11,7 +11,7 @@ RSpec.describe 'change status of tasks' do
   end
 
 
-  xit "changes status from incomplete to completed", js: true do 
+  it "changes status from incomplete to completed", js: true do 
     create_a_list_and_tasks
     click_on "Car shopping"
     
