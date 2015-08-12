@@ -32,6 +32,11 @@ class Task < ActiveRecord::Base
   end
 
 
-
-
+  def self.import(file)
+    CSV.foreach(file.tempfile, headers: true ) do |row|
+      task_attributes = row.to_hash
+      task_attributes.delete(:image)
+      Task.create task_attributes
+    end
+  end
 end
