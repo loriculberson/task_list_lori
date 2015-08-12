@@ -6,7 +6,6 @@
   <%= link_to 'Completed Tasks', list_tasks_path({ status: "Completed"}) %> ~
   <%= link_to 'Future Tasks', list_tasks_path({ start_date: "future"}) %> ~
   <%= link_to 'Incomplete Tasks', list_tasks_path({ status: "Incomplete"}) %>
-  <%#= link_to 'Scheduled Tasks', list_tasks_path({ start_date: FUTURE}) %>
 
   <table class="table tasks table-condensed">
     <thead>

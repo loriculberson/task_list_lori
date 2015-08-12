@@ -1,5 +1,7 @@
 <h3> All of Your Lists </h3>
-<%= link_to '<--Home', root_path %>
+<%= link_to '<--Home', root_path %> ~ 
+<%= link_to 'Export Data',  list_export_path(@tasks, format: "csv") %>
+
 
 <table class="table table-condensed">
   <thead>
