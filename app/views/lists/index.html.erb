@@ -1,6 +1,6 @@
 <h3> All of Your Lists </h3>
 <%= link_to '<--Home', root_path %> ~ 
-<%= link_to 'Export Data',  list_export_path(@tasks, format: "csv") %>
+<%= link_to 'Download Data',  list_export_path(@tasks, format: "csv") %>
 
 
 <table class="table table-condensed">
@@ -28,3 +28,9 @@
 </table>
 
 <%= link_to 'Create a New List', new_list_path %>
+
+<h3> Import CSV </h3>
+<%= form_tag import_lists_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>

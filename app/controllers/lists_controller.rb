@@ -42,8 +42,14 @@ class ListsController < ApplicationController
     @tasks = Task.order(:created_at)
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.csv { send_data @tasks.to_csv }
+      format.csv  { send_data @lists.to_csv + @tasks.to_csv }
     end
+  end
+
+  def import
+    List.import(params[:file])
+    flash[:notice] = "Tasks imported"
+    redirect_to lists_path
   end
 
 
