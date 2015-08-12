@@ -3,6 +3,8 @@ class Task < ActiveRecord::Base
   validate :valid_date_start_date
   validate :valid_date_due_date
   belongs_to :list
+  has_attached_file :image, styles: { medium: "250x170>", thumb: "100x100>" } 
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def valid_date_start_date
     if start_date && start_date.past?
