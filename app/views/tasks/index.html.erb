@@ -26,7 +26,7 @@
     <tbody>
       <% @tasks.each do |task| %>
         <tr >
-          <td><%= task.title %> </td>
+          <td><%= link_to task.title, list_task_path(task.list_id, task) %> </td>
           <td><%= task.notes %> </td>
           <td><%= task.start_date %> </td>
           <td><%= task.due_date %> </td>

@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
 gem 'activesupport'
 gem 'timecop'
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.1.12'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -48,6 +50,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'dotenv-rails'
 end
 
 group :test do

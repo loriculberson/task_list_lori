@@ -51,11 +51,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def delete_image
+    task = Task.find(params[:task_id])
+    task.image = nil
+    task.save!
+    redirect_to :back
+  end
+
   private
   def task_params
     params.require(:task).permit(:title, :notes, :due_date,
                                   :start_date, :list_id, 
-                                  :status)
+                                  :status, :image)
 
   end
 end
